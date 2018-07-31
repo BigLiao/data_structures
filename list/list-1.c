@@ -1,6 +1,6 @@
 // 顺序表算法
 #include <stdio.h>
-#include "1.h"
+#include "list-1.h"
 
 
 int main() {

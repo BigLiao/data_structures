@@ -8,12 +8,12 @@
       "name": "debug:current",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "program": "${workspaceFolder}/output/output.out",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": false,
+      "externalConsole": true,
       "MIMode": "lldb",
       "setupCommands": [
         {

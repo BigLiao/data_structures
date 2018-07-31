@@ -2,7 +2,7 @@
 // 数据结构习题
 
 #include <stdlib.h>
-#include "1.h"
+#include "./list-1.h"
 
 // 将顺序表里的元素逆置，要求空间复杂度O(1)
 void reverseList (SqList *L) {

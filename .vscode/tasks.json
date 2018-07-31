@@ -18,7 +18,7 @@
       "type": "shell",
       "command": "gcc",
       "args": [
-        "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}.out"
+        "-g", "${file}", "-o", "${workspaceFolder}/output/output.out"
       ],
       "group": {
           "kind": "build",
