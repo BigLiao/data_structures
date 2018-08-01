@@ -1,7 +1,6 @@
 
 #define STACK_INIT_SIZE 50
 #define STACK_INCREMENT 10
-#define ElemType int
 #define OK 1
 #define ERROR -1
 #define OVERFLOW -2
@@ -9,6 +8,14 @@
 #include <stdio.h>
 #include <time.h>
 typedef int Status;
+
+
+typedef struct {
+  int i; // 行号
+  int j; // 列号
+  int di; // 下一步的方位，上右下左分别用 0,1,2,3表示，顺时针
+} SElemType;
+#define ElemType SElemType
 
 typedef struct {
   ElemType *top;
@@ -27,10 +34,11 @@ Status InitStack (SqStack *S)
   return OK;
 }
 
-ElemType GetTop (SqStack *S)
+Status GetTop (SqStack *S, ElemType **e)
 {
   if(S->top == S->base) return ERROR;
-  return *(S->top - 1);
+  *e = (S->top - 1);
+  return OK;
 }
 
 Status PushStack (SqStack *S, ElemType e)
@@ -41,14 +49,16 @@ Status PushStack (SqStack *S, ElemType e)
     if (!S->base) exit(OVERFLOW);
     S->stacksize += STACK_INCREMENT;
   }
-  *S->top++ = e;
+  *(S->top) = e;
+  S->top++;
   return OK;
 }
 
-ElemType PopStack (SqStack *S) 
+Status PopStack (SqStack *S) 
 {
   if (S->base == S->top) return ERROR;
-  return *(--S->top);
+  S->top--;
+  return OK;
 }
 
 int StackEmpty (SqStack *S)
