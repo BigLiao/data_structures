@@ -41,6 +41,11 @@ Status GetTop (SqStack *S, ElemType **e)
   return OK;
 }
 
+int StackLength (SqStack *S)
+{
+  return (S->top - S->base);
+}
+
 Status PushStack (SqStack *S, ElemType e)
 {
   if (S->top - S->base >= S->stacksize) {
@@ -54,7 +59,7 @@ Status PushStack (SqStack *S, ElemType e)
   return OK;
 }
 
-Status PopStack (SqStack *S) 
+Status PopStack (SqStack *S)
 {
   if (S->base == S->top) return ERROR;
   S->top--;
