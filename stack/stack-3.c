@@ -57,6 +57,14 @@ void test_perm ()
   perm(str, 0, 4);
 }
 
+
+// 组合问题：
+// 从自然是1、2、3……、m 中任取k 个数的所有组合
+
+
+// 皇后问题：
+// 在 n*n 的棋盘上，放置n 个皇后，求每个皇后不同行、不同列、不同左右对角线
+
 int main(int argc, char const *argv[])
 {
   test_perm();
