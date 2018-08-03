@@ -59,14 +59,36 @@ void test_perm ()
 
 
 // 组合问题：
-// 从自然是1、2、3……、m 中任取k 个数的所有组合
+// 从自然数1、2、3……、m 中任取 k 个数的所有组合
+void comb (int a[], int m, int k)
+{
+  if (k == 1) {
+    for (int j = 0; j < m; j++) {
+      a[0] = j+1;
+      printf("结果：");
+      print_array(a, 3);
+    }
+  } else {
+    for (int i = m; i >= k; i--) {
+      a[k - 1] = i;
+      comb(a, i - 1, k - 1);
+    }
+  }
+}
+void test_comb () {
+  int a[3];
+  comb(a, 5, 3);
+}
 
+// N皇后问题：
+// 在 n*n 的棋盘上，放置 n 个皇后，求每个皇后不同行、不同列、不同斜对角线
+void queen (int q[], int n, int k)
+{
 
-// 皇后问题：
-// 在 n*n 的棋盘上，放置n 个皇后，求每个皇后不同行、不同列、不同左右对角线
+}
 
 int main(int argc, char const *argv[])
 {
-  test_perm();
+  test_comb();
   return 0;
 }
