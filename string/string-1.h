@@ -84,3 +84,20 @@ Status Concat (HString *T, HString S1, HString S2) {
   }
   return OK;
 }
+
+Status SubString (HString *Sub, HString S, int pos, int len) {
+  if (pos < 0 || pos >= S.length || len < 0 || len > S.length - pos)
+    return ERROR;
+  if (Sub->ch) free(Sub->ch);
+  if (len == 0) {
+    Sub->ch = NULL;
+    Sub->length = 0;
+  } else {
+    Sub->ch = (char *) malloc(len * sizeof(char));
+    for (int i = 0; i < len; i++) {
+      Sub->ch[i] = S.ch[i + pos];
+    }
+    Sub->length = len;
+  }
+  return OK;
+}
