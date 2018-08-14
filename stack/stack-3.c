@@ -82,9 +82,18 @@ void test_comb () {
 
 // N皇后问题：
 // 在 n*n 的棋盘上，放置 n 个皇后，求每个皇后不同行、不同列、不同斜对角线
-void queen (int q[], int n, int k)
+void queen (int n)
 {
+  if (n > 20) return;
+  int q[20]; // 存放每行皇后所在的列号
+  
 
+}
+void place (int k, int n) {
+  // 放置函数，用于递归
+  if (k == n) {
+
+  }
 }
 
 int main(int argc, char const *argv[])
