@@ -12,11 +12,9 @@ void testCreate2 () {
     |
     B ---
     |    |
-    C    D ---
-         |    |
-         E    F
-         |
-         G
+    C    D ---------
+         |          |
+         E --- G    F
   */
   BiTree T;
   CreateBiTree2(&T, &s);

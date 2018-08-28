@@ -39,11 +39,34 @@ void InThreading (BiThrTree T, BiThrNode **pre) {
       T->LTag = Thread;
       T->lchild = *pre;
     }
-    if (!T->rchild) {
+    if (!(*pre)->rchild) {
       (*pre)->RTag = Thread;
       (*pre)->rchild = T;
     }
     (*pre) = T;
     InThreading(T->rchild, pre);
   }
+}
+
+// -------------孩子树的链表储存表示-------------------
+typedef struct CTNode {
+  int child;
+  struct CTNode *next;
+} *ChildPtr;
+typedef struct CTBox {
+  TElemType data;
+  struct CTBox *parent;
+  ChildPtr firstchild;
+} CTBox;
+typedef struct {
+  CTBox nodes[100]; // maxsize 100
+  int n, r; // 节点数和根节点的位置
+} CTree;
+
+// ------------二叉树和森林转换-------------------
+
+// 把森林转换成二叉树
+Status ForestToBiTree (CTree *forest, int r, BiThrTree biTree) {
+  ForestToBiTree(forest, ((forest->nodes[forest->r]).firstchild)->child, biTree->lchild);
+  return OK;
 }
